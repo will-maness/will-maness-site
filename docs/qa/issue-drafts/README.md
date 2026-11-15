@@ -1,33 +1,36 @@
-# QA issue drafts — 2026-07-11 (re-confirmed 2026-07-18, 2026-07-25)
+# QA issue drafts: consolidated index (as of 2026-11-15)
 
-Draft GitHub issues from the hiring-manager QA pass in
-`docs/qa/2026-07-11-hiring-manager-qa.md`. Nothing here has been filed as a
-real issue yet — review and approve in this PR first, then file whichever
-ones you want tracked (title/labels are in each file's frontmatter, ready to
-copy into `gh issue create` or the GitHub UI).
+Draft GitHub issues from the hiring-manager QA passes in `docs/qa/`. **None
+of these have been filed as GitHub issues.** Approve this PR, then file the
+ones you want tracked. Title and labels are in each file's frontmatter.
 
-**2026-07-18 follow-up:** re-verified all 9 against current `main` — see
-`docs/qa/2026-07-18-hiring-manager-qa.md`. All still open and unfixed; 04 and
-05 picked up new detail (each file has a dated "Update" note inline).
+**This PR is the complete set.** Before today, drafts 10–19 existed only on
+PR #250 and drafts 20–21 only on PR #254, and none of the QA PRs since
+#245 had merged. This branch collects all 23 drafts and every report from
+2026-08-01 through today, so #245 and #248–#255 can be closed without
+merging and without losing anything.
 
-**2026-07-25 follow-up:** re-verified all 9 again — see
-`docs/qa/2026-07-25-hiring-manager-qa.md`. **Real fix PRs now exist for 8 of
-the 9** (#234–#241), filed after the 07-18 pass. Only #240 (finding 07) has
-been merged; #234, #235, #236, #237, #238, #239, and #241 are open with
-green CI and no reviews yet. No new findings this pass — the site itself is
-unchanged from 07-18 except for the one merged fix.
+Status was re-verified against production (`www.willmaness.com`) on
+2026-11-15. `main` is still `dd40435` (2026-08-01).
 
-| # | Title | Priority | Fix PR | Status |
-| - | ----- | -------- | ------ | ------ |
-| 01 | `/work/vendor_feed` legacy route crashes with an unhandled 500 | High | #234 | Open |
-| 02 | `/ember` is an indexable duplicate of `/work/ember` | High | #236 | Open |
-| 03 | About page renders two `<h1>` elements | Medium | #238 | Open |
-| 04 | Live-data widgets show raw error string instead of designed fallback | Medium | #235 | Open |
-| 05 | Work index doesn't show in-progress status (per execution brief) | Medium | #237 | Open |
-| 06 | Add a custom 404 page | Low | #239 | Open |
-| 07 | Remove unused create-next-app placeholder assets | Low | #240 | **Merged** |
-| 08 | MEMORY.md is stale and Phase 1 quiz is missing | Low | #241 | Open |
-| 09 | Consider: "Sable" doesn't reinforce the technical-fluency narrative | Low / discussion | — | No PR (editorial call) |
+| # | Title | Priority | Status |
+| - | ----- | -------- | ------ |
+| 01–08 | Original July findings | — | Resolved (#234–#241) |
+| 09 | Consider: "Sable" doesn't reinforce the technical-fluency narrative | Discussion | Open (editorial call) |
+| 10 | Pipeline Dashboard copy describes chess tracking it doesn't do | — | Superseded by 15 (don't file) |
+| 11 | Homepage share image is 0 bytes (missing `display:flex` in OG route) | **Blocker** | Open since 08-23, still 0 bytes in prod |
+| 12 | A live essay is placeholder text (and in RSS + sitemap) | **Blocker** | Open since 08-23, still live |
+| 13 | Mobile footer overflows on every page | Medium | Open, 45px overflow at 390px |
+| 14 | `/work/[slug]` force-dynamic despite `generateStaticParams` | Medium | Open |
+| 15 | Pipeline Dashboard: four disagreeing sources of truth | Medium | Open |
+| 16 | Hardcoded hex colors violate the token rule | Low | Open |
+| 17 | No route-level error boundaries | Low | Open |
+| 18 | `/work/vendor-feed` vs `/work/vendor_feed` near-duplicate URLs | Low | Open, `_feed` still 200 and ~800 KB, indexable |
+| 19 | Small content nits (bundled) | Low | Open |
+| 20 | Metadata/`og:image` point at apex, site served on `www` | Low | Open |
+| 21 | Homepage "Recent writing" links to the placeholder essay | **High** | Open (fold into 12) |
+| 22 | **New:** chess tracker fails entirely on a single Lichess 429 | **High** | New 2026-11-15 |
+| 23 | **New:** StackList 4-column grid breaks on mobile | Medium | New 2026-11-15 |
 
-**Recommended next step:** review and merge #234–#239 and #241 — they're the
-actual fixes for this list and have been sitting ready since 07-18.
+**Suggested filing order:** 11 + 12/21 (one PR each, very visible, small),
+then 22, then 13 + 23 together (both mobile overflow), then the rest.
